@@ -11,6 +11,7 @@ namespace Day9AddressBookSystem
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to Address Book Program");
             Address a = new Address();
             ArrayList addbook = new ArrayList();
             choice();
@@ -19,6 +20,7 @@ namespace Day9AddressBookSystem
                 Console.WriteLine("Enter 1 to Add Details");
                 Console.WriteLine("Enter 2 to Add 2nd Person Details");
                 Console.WriteLine("Enter 3 to Edit Existing Detail");
+                Console.WriteLine("Enter 4 to Delete Existing Detials");
                 a.value = Convert.ToInt32(Console.ReadLine());
                 switch (a.value)
                 {
@@ -163,7 +165,7 @@ namespace Day9AddressBookSystem
                             a.email2 = Convert.ToString(Console.ReadLine());
                             addbook.Add(a.email2);
 
-                            Console.WriteLine("Given new Details Are : ");
+                            Console.WriteLine("\nGiven new Details Are : \n");
                             Console.WriteLine("First Name = " + addbook[8]);
                             Console.WriteLine("Lastt Name = " + addbook[9]);
                             Console.WriteLine("Address = " + addbook[10]);
@@ -172,6 +174,25 @@ namespace Day9AddressBookSystem
                             Console.WriteLine("Zip = " + addbook[13]);
                             Console.WriteLine("Phone Number = " + addbook[14]);
                             Console.WriteLine("Email = " + addbook[15]);
+
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Enter First Name and Last Name of the person to delete his record");
+                        string fname1 = Convert.ToString(Console.ReadLine());
+                        string lname2 = Convert.ToString(Console.ReadLine());
+                        if ((a.firstName == fname1) && (a.lastName == lname2))
+                        {
+                            addbook.RemoveRange(0, 7);
+
+                            Console.WriteLine(" Record Deleted ");
+
+                        }
+                        else if ((a.firstName2 == fname1) && (a.lastName2 == lname2))
+                        {
+                            addbook.RemoveRange(8, 15);
+                            Console.WriteLine(" Record Deleted ");
+
                         }
                         break;
                 }
